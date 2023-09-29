@@ -1,26 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createUseStyles } from 'react-jss'
+import { Layout, Menu } from 'antd'
+import {
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons'
+import { MainContent } from './pages/mainContent'
+
+const useStyles = createUseStyles({
+  container: {
+    height: '100%',
+  },
+  test: {
+    background: '#94A1A6',
+    height: '100%',
+  },
+})
 
 function App() {
+  const styles = useStyles()
+  const { Sider, Content } = Layout
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Layout className={styles.container}>
+        <Sider
+          breakpoint='md'
+          collapsedWidth='0'
+          onBreakpoint={(broken) => {
+            console.log(broken)
+          }}
+          onCollapse={(collapsed, type) => {
+            console.log(collapsed, type)
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Menu
+            // theme='dark'
+            className={styles.test}
+            mode='inline'
+            defaultSelectedKeys={['1']}
+            items={[
+              {
+                key: '1',
+                icon: <UserOutlined />,
+                label: 'nav 1',
+              },
+              {
+                key: '2',
+                icon: <VideoCameraOutlined />,
+                label: 'nav 2',
+              },
+              {
+                key: '3',
+                icon: <UploadOutlined />,
+                label: 'nav 3',
+              },
+            ]}
+          />
+        </Sider>
+        <Content>
+          <MainContent />
+        </Content>
+      </Layout>
+    </>
+  )
 }
 
-export default App;
+export default App
