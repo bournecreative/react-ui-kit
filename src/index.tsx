@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root'
 import ErrorPage from './pages/Error'
+import { ChartExample } from './pages/ChartExample/ChartExample'
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/contacts/1',
-        element: <div>test</div>,
+        element: <ChartExample />,
       },
       {
         path: '/contacts/2',
