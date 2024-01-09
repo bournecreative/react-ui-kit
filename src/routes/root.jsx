@@ -20,6 +20,7 @@ const useStyles = createUseStyles({
 const Root = () => {
   const styles = useStyles()
   const { Sider, Content } = Layout
+  const { Item } = Menu
   return (
     <>
       <Layout className={styles.container}>
@@ -34,29 +35,25 @@ const Root = () => {
           }}
           width={240}
         >
-          <Menu
-            className={styles.sideBar}
-            mode='inline'
-            defaultSelectedKeys={['1']}
-          >
-            <Menu.Item key='1'>
+          <Menu className={styles.sideBar} defaultSelectedKeys={['1']}>
+            <Item key='1'>
               <Link to={`/`}>
                 <Icon component={HomeOutlined} />
                 <span>Home</span>
               </Link>
-            </Menu.Item>
-            <Menu.Item key='2'>
+            </Item>
+            <Item key='2'>
               <Link to={`/contacts/1`}>
                 <Icon component={SubnodeOutlined} />
                 <span>Component 1</span>
               </Link>
-            </Menu.Item>
-            <Menu.Item key='3'>
+            </Item>
+            <Item key='3'>
               <Link to={`/contacts/2`}>
                 <Icon component={SubnodeOutlined} />
                 <span>Component 2</span>
               </Link>
-            </Menu.Item>
+            </Item>
           </Menu>
         </Sider>
         <Content className={styles.content}>
