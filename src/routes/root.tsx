@@ -1,7 +1,12 @@
 import { Outlet, Link } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
 import { Layout, Menu } from 'antd'
-import Icon, { HomeOutlined, SubnodeOutlined } from '@ant-design/icons'
+
+import Icon, {
+  HomeOutlined,
+  SubnodeOutlined,
+  BarChartOutlined,
+} from '@ant-design/icons'
 
 const useStyles = createUseStyles({
   container: {
@@ -20,7 +25,7 @@ const useStyles = createUseStyles({
 const Root = () => {
   const styles = useStyles()
   const { Sider, Content } = Layout
-  const { Item } = Menu
+  const { Item, ItemGroup } = Menu
   return (
     <>
       <Layout className={styles.container}>
@@ -38,28 +43,25 @@ const Root = () => {
           <Menu className={styles.sideBar} defaultSelectedKeys={['1']}>
             <Item key='1'>
               <Link to={`/`}>
-                <Icon>
-                  <HomeOutlined />
-                </Icon>
+                <Icon component={() => <HomeOutlined />}></Icon>
+
                 <span>Home</span>
               </Link>
             </Item>
-            <Item key='2'>
-              <Link to={`/contacts/1`}>
-                <Icon>
-                  <SubnodeOutlined />
-                </Icon>
-                <span>Component 1</span>
-              </Link>
-            </Item>
-            <Item key='3'>
-              <Link to={`/contacts/2`}>
-                <Icon>
-                  <SubnodeOutlined />
-                </Icon>
-                <span>Component 2</span>
-              </Link>
-            </Item>
+            <ItemGroup key='charts' title='Charts'>
+              <Item key='2'>
+                <Link to={`/contacts/1`}>
+                  <Icon component={() => <BarChartOutlined />}></Icon>
+                  <span>Bar Chart</span>
+                </Link>
+              </Item>
+              <Item key='3'>
+                <Link to={`/contacts/2`}>
+                  <Icon component={() => <SubnodeOutlined />}></Icon>
+                  <span>Component 2</span>
+                </Link>
+              </Item>
+            </ItemGroup>
           </Menu>
         </Sider>
         <Content className={styles.content}>
