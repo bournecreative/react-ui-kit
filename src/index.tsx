@@ -1,5 +1,5 @@
 import 'antd/dist/reset.css'
-import '../src/css/index.css'
+import './styles/css/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'

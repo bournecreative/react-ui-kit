@@ -38,19 +38,25 @@ const Root = () => {
           <Menu className={styles.sideBar} defaultSelectedKeys={['1']}>
             <Item key='1'>
               <Link to={`/`}>
-                <Icon component={HomeOutlined} />
+                <Icon>
+                  <HomeOutlined />
+                </Icon>
                 <span>Home</span>
               </Link>
             </Item>
             <Item key='2'>
               <Link to={`/contacts/1`}>
-                <Icon component={SubnodeOutlined} />
+                <Icon>
+                  <SubnodeOutlined />
+                </Icon>
                 <span>Component 1</span>
               </Link>
             </Item>
             <Item key='3'>
               <Link to={`/contacts/2`}>
-                <Icon component={SubnodeOutlined} />
+                <Icon>
+                  <SubnodeOutlined />
+                </Icon>
                 <span>Component 2</span>
               </Link>
             </Item>
